@@ -15,9 +15,9 @@ public class Fitness {
 	public double getFitness(Vector6D parVec){
 		double fitness;
 		
-		fitness = a*Math.pow(Math.E, (-b*Math.sqrt((1/d)*parVec.getSquareSum()))
+		fitness = a*Math.pow(Math.E, (-b*Math.sqrt((1/d)*parVec.getSquareSum())))
 				- Math.pow(Math.E, (1/d)*parVec.getCosinusSum(c))
-				+a+Math.E);
+				+a+Math.E;
 		
 		return fitness;
 	}
