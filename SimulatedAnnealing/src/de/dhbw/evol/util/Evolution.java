@@ -29,7 +29,7 @@ public class Evolution {
 			
 			System.out.println(randomValue);
 			
-			randomValue = scaleNumberToInterval(randomValue, -100, 100);
+			randomValue = scaleNumberToInterval(randomValue, -40, 40);
 			
 			vector.setElementToValue(i, randomValue);
 		}
