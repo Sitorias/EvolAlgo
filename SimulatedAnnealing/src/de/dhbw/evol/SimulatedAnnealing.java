@@ -17,10 +17,19 @@ public class SimulatedAnnealing {
 		Fitness myFitness = new Fitness(a,b,c,d);
 		
 		Vector6D parameterVector = Evolution.getInstance().generateRandomVector();
+		double temperature = 1;
+		
+		while(temperature > 0) {
+			int noOperationHappened = 0;
+			
+			while(noOperationHappened < 100) {
+				
+			}
+			
+			temperature -= 0.01;
+		}
 		
 		double fitnessValue = myFitness.getFitness(parameterVector);
-		
-		System.out.println(fitnessValue);
 	}
 
 }

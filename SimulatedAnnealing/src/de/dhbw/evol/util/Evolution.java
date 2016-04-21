@@ -49,4 +49,16 @@ public class Evolution {
 		
 		return scaledNumber;
 	}
+	
+	public Vector6D updateNElementsOfVectorWithStep(int n, Vector6D vector, double step) {
+		
+	}
+	
+	private double getRandomNumberInInterval(double lowerBound, double upperBound) {
+		double randomNumber = randomGenerator.nextDouble();
+		
+		randomNumber = scaleNumberToInterval(randomNumber, lowerBound, upperBound);
+		
+		return randomNumber;
+	}
 }
