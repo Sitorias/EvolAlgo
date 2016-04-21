@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Vector6D {
 	private List<Double> data;
-	private double c = 2 * Math.PI;
 	
 	private final int dimension = 6;
 	
@@ -23,11 +22,11 @@ public class Vector6D {
 		return returnValue;
 	}
 	
-	public double getCosinusSum() {
+	public double getCosinusSum(double c) {
 		double returnValue = 0.0f;
 		
 		for(Double element : data) {
-			returnValue += Math.cos(c * element);
+			returnValue += Math.cos(c * Math.PI * element);
 		}
 		
 		return returnValue;

@@ -1,5 +1,4 @@
 package de.dhbw.evol.util;
-import java.math.*;
 import de.dhbw.evol.util.Vector6D;
 
 
