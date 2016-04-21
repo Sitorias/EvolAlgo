@@ -1,4 +1,4 @@
-package de.dhbw.evol.util;
+package de.dhbw.evol.main.util;
 
 import java.awt.Dimension;
 import java.util.Random;

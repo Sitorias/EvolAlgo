@@ -1,4 +1,4 @@
-package de.dhbw.evol.util;
+package de.dhbw.evol.main.util;
 
 import java.util.ArrayList;
 import java.util.List;

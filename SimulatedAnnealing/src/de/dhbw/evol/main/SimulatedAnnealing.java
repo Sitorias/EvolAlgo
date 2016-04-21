@@ -1,8 +1,8 @@
-package de.dhbw.evol;
+package de.dhbw.evol.main;
 
-import de.dhbw.evol.util.Evolution;
-import de.dhbw.evol.util.Fitness;
-import de.dhbw.evol.util.VectorND;
+import de.dhbw.evol.main.util.Evolution;
+import de.dhbw.evol.main.util.Fitness;
+import de.dhbw.evol.main.util.VectorND;
 
 public class SimulatedAnnealing {
 	private static final double a = 20;
@@ -18,14 +18,14 @@ public class SimulatedAnnealing {
 
 		VectorND parameterVector = Evolution.getInstance().generateRandomVector(d);
 		double temperature = 1;
-		double coolingRate = 0.001;
+		double coolingRate = 0.01;
 		double temperatureWeight = 0.0001;
 		double intervallBorderWeight = 10;
-		int operationBorder = 1000;
+		int operationBorder = 100;
 
 		double fitnessValueOld = myFitness.getFitness(parameterVector);
 
-		while (temperature > 0.001) {
+		while (temperature > 0.01) {
 			int noOperationHappened = 0;
 
 			while (noOperationHappened < operationBorder) {

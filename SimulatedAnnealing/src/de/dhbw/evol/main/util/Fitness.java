@@ -1,5 +1,5 @@
-package de.dhbw.evol.util;
-import de.dhbw.evol.util.VectorND;
+package de.dhbw.evol.main.util;
+import de.dhbw.evol.main.util.VectorND;
 
 
 public class Fitness {
