@@ -19,17 +19,27 @@ public class SimulatedAnnealing {
 		Vector6D parameterVector = Evolution.getInstance().generateRandomVector();
 		double temperature = 1;
 		
+		double fitnessValueOld = myFitness.getFitness(parameterVector);
+		
 		while(temperature > 0) {
 			int noOperationHappened = 0;
 			
 			while(noOperationHappened < 100) {
+				parameterVector = Evolution.getInstance().updateNElementsOfVectorWithStep(1, parameterVector, 1);
 				
+				double fitnessValueNew = myFitness.getFitness(parameterVector);
+				
+				double differenceFitness = fitnessValueNew - fitnessValueOld;
+				
+				if(differenceFitness < 0) {
+					fitnessValueOld = fitnessValueNew;
+				} else {
+					
+				}
 			}
 			
 			temperature -= 0.01;
 		}
-		
-		double fitnessValue = myFitness.getFitness(parameterVector);
 	}
 
 }

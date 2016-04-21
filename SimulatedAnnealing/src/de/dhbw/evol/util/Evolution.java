@@ -1,5 +1,6 @@
 package de.dhbw.evol.util;
 
+import java.awt.Dimension;
 import java.util.Random;
 
 /**
@@ -51,7 +52,20 @@ public class Evolution {
 	}
 	
 	public Vector6D updateNElementsOfVectorWithStep(int n, Vector6D vector, double step) {
+		if(n > 6) {
+			System.out.println("Invalid n");
+			return null;
+		}
 		
+		for(int i = 0; i < n; i++) {
+			int elementToUpdate = randomGenerator.nextInt(vector.getDimension());
+			
+			double randomValue = getRandomNumberInInterval(0, step);
+			
+			vector.setElementToValue(elementToUpdate, randomValue);
+		}
+		
+		return vector;
 	}
 	
 	private double getRandomNumberInInterval(double lowerBound, double upperBound) {
