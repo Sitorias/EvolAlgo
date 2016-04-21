@@ -17,7 +17,7 @@ public class Fitness {
 		double fitness;
 		
 		fitness = a*Math.pow(Math.E, (-b*parVec.getSquareSum())
-				- Math.pow(Math.E, (1/d)*parVec.getCosSum(c))
+				- Math.pow(Math.E, (1/d)*parVec.getCosinusSum(c))
 				+a+Math.E);
 		
 		return fitness;
