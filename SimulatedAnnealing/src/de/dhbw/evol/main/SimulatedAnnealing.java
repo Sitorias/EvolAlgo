@@ -59,6 +59,14 @@ public class SimulatedAnnealing {
 		}
 
 		System.out.println("Fitness: " + fitnessValueOld);
-		}
+		
+//		//Debug output
+//		System.out.println(parameterVector.toString());
+//		
+//		//Null output
+//		VectorND nullVector = new VectorND(d);
+//		System.out.println(myFitness.getFitness(nullVector));
+//		System.out.println(nullVector.toString());
+	}
 
 }
