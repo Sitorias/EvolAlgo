@@ -16,6 +16,8 @@ public class SimulatedAnnealing {
 	public static void main(String[] args){
 		Fitness myFitness = new Fitness(a,b,c,d);
 		
+		double k = 1;
+		
 		Vector6D parameterVector = Evolution.getInstance().generateRandomVector();
 		double temperature = 1;
 		
@@ -34,12 +36,28 @@ public class SimulatedAnnealing {
 				if(differenceFitness < 0) {
 					fitnessValueOld = fitnessValueNew;
 				} else {
+					double randomNumber = Evolution.getInstance().getRandomNumberInInterval(0, 1);
 					
+					double controlValue = Math.pow(Math.E, -differenceFitness / k * temperature);
+					
+					if(randomNumber < controlValue) {
+						fitnessValueOld = fitnessValueOld;
+						noOperationHappened = 0;
+					} else {
+						noOperationHappened++;
+					}
 				}
 			}
 			
 			temperature -= 0.01;
 		}
+		
+		System.out.println(fitnessValueOld);
+		
+		Vector6D nullVector = new Vector6D();
+		
+		System.out.println(myFitness.getFitness(nullVector));
+		System.out.println(nullVector.toString());
 	}
 
 }

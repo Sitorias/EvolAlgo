@@ -68,7 +68,7 @@ public class Evolution {
 		return vector;
 	}
 	
-	private double getRandomNumberInInterval(double lowerBound, double upperBound) {
+	public double getRandomNumberInInterval(double lowerBound, double upperBound) {
 		double randomNumber = randomGenerator.nextDouble();
 		
 		randomNumber = scaleNumberToInterval(randomNumber, lowerBound, upperBound);

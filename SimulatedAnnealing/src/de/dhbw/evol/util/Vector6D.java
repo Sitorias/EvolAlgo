@@ -47,4 +47,15 @@ public class Vector6D {
 	public double getElement(int index) {
 		return this.data.get(index);
 	}
+	
+	@Override
+	public String toString() {
+		String stringRepresentation = new String();
+		
+		for(int i = 0; i < dimension; i++) {
+			stringRepresentation = stringRepresentation.concat(data.get(i).toString() + "\n");
+		}
+		
+		return stringRepresentation;
+	}
 }
