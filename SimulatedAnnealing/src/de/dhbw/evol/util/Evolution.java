@@ -27,8 +27,6 @@ public class Evolution {
 		for(int i = 0; i < vector.getDimension(); i++) {
 			double randomValue = randomGenerator.nextDouble();
 			
-			System.out.println(randomValue);
-			
 			randomValue = scaleNumberToInterval(randomValue, -40, 40);
 			
 			vector.setElementToValue(i, randomValue);
