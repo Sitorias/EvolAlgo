@@ -8,7 +8,7 @@ public class SimulatedAnnealing {
 	private static final double a = 20;
 	private static final double b = 0.2;
 	private static final double c = 2 * Math.PI;
-	private static final int d = 100;
+	private static final int d = 10000;
 
 	public SimulatedAnnealing() {
 	}
@@ -19,9 +19,9 @@ public class SimulatedAnnealing {
 		VectorND parameterVector = Evolution.getInstance().generateRandomVector(d);
 		double temperature = 1;
 		double coolingRate = 0.003;
-		double temperatureWeight = 0.0001;
-		double intervallBorderWeight = 0.001;
-		double tempInterrupt = 0.0000000000001;
+		double temperatureWeight = 0.000001;
+		double intervallBorderWeight = 0.1;
+		double tempInterrupt = 0.1;
 		int operationBorder = 20;
 		
 		int iterations = 100;
@@ -58,9 +58,7 @@ public class SimulatedAnnealing {
 			temperature *= 1 - coolingRate;
 		}
 
-		System.out.println("Fitness" + fitnessValueOld);
-		
-		System.out.println(parameterVector.toString());		
-	}
+		System.out.println("Fitness: " + fitnessValueOld);
+		}
 
 }
