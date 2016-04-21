@@ -8,7 +8,7 @@ public class SimulatedAnnealing {
 	private static final double a = 20;
 	private static final double b = 0.2;
 	private static final double c = 2;
-	private static final double d = 6;
+	private static final int d = 6;
 	
 	public SimulatedAnnealing() {
 	}

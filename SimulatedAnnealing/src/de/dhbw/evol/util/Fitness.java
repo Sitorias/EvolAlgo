@@ -5,7 +5,7 @@ import de.dhbw.evol.util.Vector6D;
 public class Fitness {
 	double a,b,c,d;
 	
-	public Fitness(double a, double b, double c, double d){
+	public Fitness(double a, double b, double c, int d){
 		this.a = a;
 		this.b = b;
 		this.c = c;
