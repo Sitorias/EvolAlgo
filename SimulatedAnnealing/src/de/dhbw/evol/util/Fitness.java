@@ -13,11 +13,11 @@ public class Fitness {
 	}
 	
 	public double getFitness(Vector6D parVec){
-		double fitness;
+		double fitness = 0;
 		
-		fitness = a*Math.pow(Math.E, (-b*Math.sqrt((1/d)*parVec.getSquareSum())));
-		fitness -= Math.pow(Math.E, (1/d)*parVec.getCosinusSum(c));
-		fitness += a;
+		fitness = - a*Math.pow(Math.E, (-b*Math.sqrt((1/d)*parVec.getSquareSum())));		
+		fitness -= Math.pow(Math.E, (1/d)*parVec.getCosinusSum(c));		
+		fitness += a;		
 		fitness += Math.E;
 		
 		return fitness;

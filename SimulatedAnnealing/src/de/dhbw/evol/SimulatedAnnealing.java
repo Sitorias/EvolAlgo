@@ -20,13 +20,14 @@ public class SimulatedAnnealing {
 		
 		Vector6D parameterVector = Evolution.getInstance().generateRandomVector();
 		double temperature = 1;
+		double coolingRate = 0.001;
 		
 		double fitnessValueOld = myFitness.getFitness(parameterVector);
 		
-		while(temperature > 0) {
+		while(temperature > 0.001) {
 			int noOperationHappened = 0;
 			
-			while(noOperationHappened < 9) {
+			while(noOperationHappened < 5) {
 				parameterVector = Evolution.getInstance().updateNElementsOfVectorWithStep(1, parameterVector, 1);
 				
 				double fitnessValueNew = myFitness.getFitness(parameterVector);
@@ -41,7 +42,7 @@ public class SimulatedAnnealing {
 					double controlValue = Math.pow(Math.E, -differenceFitness / k * temperature);
 					
 					if(randomNumber < controlValue) {
-						fitnessValueOld = fitnessValueOld;
+						fitnessValueOld = fitnessValueNew;
 						noOperationHappened = 0;
 					} else {
 						noOperationHappened++;
@@ -49,15 +50,10 @@ public class SimulatedAnnealing {
 				}
 			}
 			
-			temperature -= 0.01;
+			temperature *= 1 - coolingRate;
 		}
 		
 		System.out.println(fitnessValueOld);
-		
-		Vector6D nullVector = new Vector6D();
-		
-		System.out.println(myFitness.getFitness(nullVector));
-		System.out.println(nullVector.toString());
 	}
 
 }
