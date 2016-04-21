@@ -58,9 +58,11 @@ public class Evolution {
 		for(int i = 0; i < n; i++) {
 			int elementToUpdate = randomGenerator.nextInt(vector.getDimension());
 			
-			double randomValue = getRandomNumberInInterval(0, step);
+			double randomValue = getRandomNumberInInterval(-step, step);
 			
-			vector.setElementToValue(elementToUpdate, randomValue);
+			double elementValue = vector.getElement(i);
+			
+			vector.setElementToValue(elementToUpdate, elementValue + randomValue);
 		}
 		
 		return vector;
