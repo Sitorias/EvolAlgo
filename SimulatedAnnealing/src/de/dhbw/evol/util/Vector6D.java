@@ -30,7 +30,7 @@ public class Vector6D {
 		double returnValue = 0.0f;
 		
 		for(Double element : data) {
-			returnValue += Math.cos(c * Math.PI * element);
+			returnValue += Math.cos(c * element);
 		}
 		
 		return returnValue;

@@ -7,7 +7,7 @@ import de.dhbw.evol.util.Vector6D;
 public class SimulatedAnnealing {
 	private static final double a = 20;
 	private static final double b = 0.2;
-	private static final double c = 2;
+	private static final double c = 2*Math.PI;
 	private static final int d = 6;
 	
 	public SimulatedAnnealing() {
