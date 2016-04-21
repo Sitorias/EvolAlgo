@@ -8,15 +8,16 @@ import java.util.Random;
  *	This class will evolve the vectors with random values
  */
 public class Evolution {
-	private static Evolution instance;
+	private static Evolution instance = new Evolution();
 	
 	Random randomGenerator;
 	
 	private Evolution() {
 		this.randomGenerator = new Random();
+		randomGenerator.setSeed(System.currentTimeMillis());
 	}
 	
-	public static synchronized Evolution getInstance() {
+	public static synchronized Evolution getInstance() {		
 		return instance;
 	}
 	
@@ -26,7 +27,11 @@ public class Evolution {
 		for(int i = 0; i < vector.getDimension(); i++) {
 			double randomValue = randomGenerator.nextDouble();
 			
+			System.out.println(randomValue);
+			
 			randomValue = scaleNumberToInterval(randomValue, -100, 100);
+			
+			vector.setElementToValue(i, randomValue);
 		}
 		
 		return vector;

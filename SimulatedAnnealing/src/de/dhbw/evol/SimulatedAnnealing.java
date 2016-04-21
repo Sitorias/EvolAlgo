@@ -1,6 +1,8 @@
 package de.dhbw.evol;
 
+import de.dhbw.evol.util.Evolution;
 import de.dhbw.evol.util.Fitness;
+import de.dhbw.evol.util.Vector6D;
 
 public class SimulatedAnnealing {
 	private static final double a = 20;
@@ -11,8 +13,14 @@ public class SimulatedAnnealing {
 	public SimulatedAnnealing() {
 	}
 	
-	private void Main(String[] args){
+	public static void main(String[] args){
 		Fitness myFitness = new Fitness(a,b,c,d);
+		
+		Vector6D parameterVector = Evolution.getInstance().generateRandomVector();
+		
+		double fitnessValue = myFitness.getFitness(parameterVector);
+		
+		System.out.println(fitnessValue);
 	}
 
 }
