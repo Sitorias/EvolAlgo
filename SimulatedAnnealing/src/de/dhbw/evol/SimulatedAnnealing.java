@@ -26,7 +26,7 @@ public class SimulatedAnnealing {
 		while(temperature > 0) {
 			int noOperationHappened = 0;
 			
-			while(noOperationHappened < 100) {
+			while(noOperationHappened < 9) {
 				parameterVector = Evolution.getInstance().updateNElementsOfVectorWithStep(1, parameterVector, 1);
 				
 				double fitnessValueNew = myFitness.getFitness(parameterVector);
