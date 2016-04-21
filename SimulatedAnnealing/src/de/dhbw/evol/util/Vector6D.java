@@ -13,10 +13,6 @@ public class Vector6D {
 		data = new ArrayList<>(6);
 	}
 	
-	private void initializeRandomVector() {
-		
-	}
-	
 	public double getSquareSum() {
 		double returnValue = 0.0f;
 		
