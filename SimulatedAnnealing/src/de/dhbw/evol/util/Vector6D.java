@@ -9,7 +9,11 @@ public class Vector6D {
 	private final int dimension = 6;
 	
 	public Vector6D() {
-		data = new ArrayList<>(6);
+		data = new ArrayList<>();
+		
+		for(int i = 0; i < dimension; i++) {
+			data.add(0.0);
+		}
 	}
 	
 	public double getSquareSum() {
