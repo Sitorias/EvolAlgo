@@ -22,8 +22,8 @@ public class Evolution {
 		return instance;
 	}
 	
-	public Vector6D generateRandomVector() {
-		Vector6D vector = new Vector6D();
+	public VectorND generateRandomVector(int dimension) {
+		VectorND vector = new VectorND(dimension);
 		
 		for(int i = 0; i < vector.getDimension(); i++) {
 			double randomValue = randomGenerator.nextDouble();
@@ -51,7 +51,7 @@ public class Evolution {
 		return scaledNumber;
 	}
 	
-	public Vector6D updateNElementsOfVectorWithStep(int n, Vector6D vector, double step) {
+	public VectorND updateNElementsOfVectorWithStep(int n, VectorND vector, double step) {
 		if(n > 6) {
 			System.out.println("Invalid n");
 			return null;

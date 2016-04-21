@@ -1,5 +1,5 @@
 package de.dhbw.evol.util;
-import de.dhbw.evol.util.Vector6D;
+import de.dhbw.evol.util.VectorND;
 
 
 public class Fitness {
@@ -12,7 +12,7 @@ public class Fitness {
 		this.d = d;
 	}
 	
-	public double getFitness(Vector6D parVec){
+	public double getFitness(VectorND parVec){
 		double fitness = 0;
 		
 		fitness = - a*Math.pow(Math.E, (-b*Math.sqrt((1/d)*parVec.getSquareSum())));		

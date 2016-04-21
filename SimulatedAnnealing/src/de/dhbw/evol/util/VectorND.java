@@ -3,15 +3,17 @@ package de.dhbw.evol.util;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vector6D {
+public class VectorND {
 	private List<Double> data;
 	
-	private final int dimension = 6;
+	private int dimension = 6;
 	
-	public Vector6D() {
+	public VectorND(int dimension) {
+		this.dimension = dimension;
+		
 		data = new ArrayList<>();
 		
-		for(int i = 0; i < dimension; i++) {
+		for(int i = 0; i < this.dimension; i++) {
 			data.add(0.0);
 		}
 	}
