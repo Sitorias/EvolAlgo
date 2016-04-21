@@ -18,14 +18,14 @@ public class SimulatedAnnealing {
 
 		VectorND parameterVector = Evolution.getInstance().generateRandomVector(d);
 		double temperature = 1;
-		double coolingRate = 0.01;
+		double coolingRate = 0.001;
 		double temperatureWeight = 0.0001;
 		double intervallBorderWeight = 10;
 		int operationBorder = 100;
 
 		double fitnessValueOld = myFitness.getFitness(parameterVector);
 
-		while (temperature > 0.01) {
+		while (temperature > 0.004) {
 			int noOperationHappened = 0;
 
 			while (noOperationHappened < operationBorder) {
