@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.xml.crypto.KeySelector.Purpose;
 
-public class Selector {
+public final class Selector {
 	public static Population selectFromPopulation(Population population) {
 		List<Chromosom> survivingIndividuals = new ArrayList<>();
 		
