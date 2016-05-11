@@ -19,7 +19,6 @@ public class IntervalEncoder {
 	}
 	
 	private IntervalEncoder() {
-		
 		createEncodedInterval();
 	}
 	
