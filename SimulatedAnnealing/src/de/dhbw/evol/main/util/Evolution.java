@@ -75,4 +75,8 @@ public class Evolution {
 		
 		return randomNumber;
 	}
+	
+	public int getRandomIntInInterval(int bound) {
+		return randomGenerator.nextInt(bound);
+	}
 }
