@@ -8,7 +8,8 @@ public class IntervalEncoder {
 	private float xMin;
 	private float xMax;
 	private float epsilon;
-	private int countBits;
+	private int countBitsPerNumber;
+	private int countBitsPerVector;
 	
 	IntervalEncoder(float lowerIntervalBorder, float upperIntervalBorder, float epsilon, int dimensions) {
 		this.dimensions = dimensions;
@@ -25,14 +26,28 @@ public class IntervalEncoder {
 		
 		double exponent_k = (diffInterval) / (Math.log(2));
 				
-		countBits = (int) exponent_k;
-		countBits++;
-		countBits *= dimensions;
+		countBitsPerNumber = (int) exponent_k;
+		countBitsPerNumber++;
+		countBitsPerVector = countBitsPerNumber * dimensions;
 	}
 
-//	public VectorND
+	public VectorND getVectorFromChromosom(Chromosom chromosomToConvert) {
+		
+	}
 	
-	public int getCountBits() {
-		return this.countBits;
+	private float getFloatFromBinaryCharArray(char[] binaryNumber) {
+		int decimalNumber = 0;
+		
+		for(int i = 1; i <= countBitsPerNumber; i++) {
+			decimalNumber += binaryNumber[countBitsPerNumber - i] * Math.pow(a, b)
+		}
+	}
+	
+	public int getCountBitsPerNumber() {
+		return this.countBitsPerNumber;
+	}
+	
+	public int getCountBitsPerVector() {
+		return this.countBitsPerVector;
 	}
 }
