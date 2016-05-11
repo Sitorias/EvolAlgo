@@ -1,5 +1,6 @@
 package de.dhbw.evol.main.util;
 
+import java.util.BitSet;
 import java.util.List;
 import java.util.Map;
 
@@ -32,15 +33,33 @@ public class IntervalEncoder {
 	}
 
 	public VectorND getVectorFromChromosom(Chromosom chromosomToConvert) {
+		char[] containingArray = new char[countBitsPerNumber];
 		
+		VectorND resultingVector = new VectorND(dimensions);
+		
+		for(int i = 0; i < dimensions; i++) {
+			for(int j = 0; j < countBitsPerNumber; i++) {
+				containingArray[j] = chromosomToConvert.content[i * countBitsPerNumber + j];
+			}
+			double decodedValue = getFloatFromBinaryCharArray(containingArray);
+			
+			resultingVector.setElementToValue(i, decodedValue);
+		}
+		
+		return resultingVector;
 	}
 	
-	private float getFloatFromBinaryCharArray(char[] binaryNumber) {
+	private double getFloatFromBinaryCharArray(char[] binaryNumber) {
 		int decimalNumber = 0;
 		
 		for(int i = 1; i <= countBitsPerNumber; i++) {
-			decimalNumber += binaryNumber[countBitsPerNumber - i] * Math.pow(a, b)
+			decimalNumber += binaryNumber[countBitsPerNumber - i] * Math.pow(2, i);
 		}
+		
+		//TODO Hardcoded, has to be replaced!!!
+		double resultingValue = (decimalNumber / (Math.pow(2, countBitsPerNumber) - 1)) * 80 - 40;
+		
+		return resultingValue;
 	}
 	
 	public int getCountBitsPerNumber() {
