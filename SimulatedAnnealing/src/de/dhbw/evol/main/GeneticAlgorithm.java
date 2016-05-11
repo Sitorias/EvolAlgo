@@ -10,6 +10,7 @@ import de.dhbw.evol.main.util.Mutator;
 import de.dhbw.evol.main.util.Population;
 import de.dhbw.evol.main.util.Recombinator;
 import de.dhbw.evol.main.util.Selector;
+import de.dhbw.evol.main.util.VectorND;
 
 import java.util.Random;
 
@@ -23,24 +24,27 @@ public class GeneticAlgorithm {
 	private static final int bitsPerDim = 17;
 	private static final int popSize = 10;
 	
+	private static Fitness fitness;
 	
 	public GeneticAlgorithm() {
 	}
 
 	public static void main(String[] args) {
-		Fitness myFitness = new Fitness(a, b, c, d);
+		fitness = new Fitness(a, b, c, d);
 		Population myPop = generateStartPopulation();
 		
-//		for(int i = 0; i < 100; i++) {
+		for(int i = 0; i < 100; i++) {
 			myPop = Selector.selectFromPopulation(myPop);		
-			myPop = Mutator.mutate(myPop, 0.01, bitsPerDim * d);
 			myPop = Recombinator.recombinate(myPop, bitsPerDim * d);
-//		}
+			myPop = Mutator.mutate(myPop, 0.01, bitsPerDim * d);
+		}
 		
 		System.out.println(myPop.population.size());
 		
 		String firstString = IntervalEncoder.getInstance().getVectorFromChromosom(myPop.population.get(0)).toString();
 		System.out.println(firstString);
+		
+		System.out.println(getBestIndividual(myPop).toString());
 	}
 	
 	private static Population generateStartPopulation(){
@@ -63,7 +67,24 @@ public class GeneticAlgorithm {
 				myArray[i]=0;
 			}
 		}
-		return new Chromosom(myArray);
+		Chromosom resultingChromosom = new Chromosom(myArray);
+		resultingChromosom.calculateFitness(fitness);
 		
+		return resultingChromosom;
+		
+	}
+	
+	private static VectorND getBestIndividual(Population pop) {
+		VectorND bestVector = new VectorND(d);
+		double bestFitness = 0;
+		
+		for(Chromosom chromosom : pop.population) {
+			if(chromosom.getFitness() > bestFitness) {
+				bestVector = IntervalEncoder.getInstance().getVectorFromChromosom(chromosom);
+				bestFitness = chromosom.getFitness();
+			}
+		}
+		
+		return bestVector;
 	}
 }

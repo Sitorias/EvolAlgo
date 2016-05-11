@@ -8,13 +8,13 @@ public class Chromosom {
 		this.content = content;
 	}
 	
-	private void calculateFitness(Fitness fitness) {
+	public void calculateFitness(Fitness fitness) {		
 		VectorND containingVector = IntervalEncoder.getInstance().getVectorFromChromosom(this);
 		
 		this.fitness = fitness.getFitness(containingVector);
 	}
 	
-	public double getFitness() {
+	public double getFitness() {		
 		return fitness;
 	}
 	
