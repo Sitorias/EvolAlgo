@@ -31,10 +31,12 @@ public class IntervalEncoder {
 		double diffInterval = xMax - xMin;
 		diffInterval /= epsilon;
 		
-		double exponent_k = (diffInterval) / (Math.log(2));
-				
-		countBitsPerNumber = (int) exponent_k;
-		countBitsPerNumber++;
+//		double exponent_k = (diffInterval) / (Math.log(2));
+//				
+//		countBitsPerNumber = (int) exponent_k;
+		
+		countBitsPerNumber = 17;
+//		countBitsPerNumber++;
 		countBitsPerVector = countBitsPerNumber * dimensions;
 	}
 
