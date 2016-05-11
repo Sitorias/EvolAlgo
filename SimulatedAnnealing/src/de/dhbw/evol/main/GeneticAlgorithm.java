@@ -8,6 +8,7 @@ import de.dhbw.evol.main.util.Fitness;
 import de.dhbw.evol.main.util.IntervalEncoder;
 import de.dhbw.evol.main.util.Mutator;
 import de.dhbw.evol.main.util.Population;
+import de.dhbw.evol.main.util.Recombinator;
 import de.dhbw.evol.main.util.Selector;
 
 import java.util.Random;
@@ -30,10 +31,14 @@ public class GeneticAlgorithm {
 		Fitness myFitness = new Fitness(a, b, c, d);
 		Population myPop = generateStartPopulation();
 		
-		myPop = Selector.selectFromPopulation(myPop);		
-		myPop = Mutator.mutate(myPop, 0.01, bitsPerDim * d);
+//		for(int i = 0; i < 100; i++) {
+			myPop = Selector.selectFromPopulation(myPop);		
+			myPop = Mutator.mutate(myPop, 0.01, bitsPerDim * d);
+			myPop = Recombinator.recombinate(myPop, bitsPerDim * d);
+//		}
 		
 		System.out.println(myPop.population.size());
+		
 		String firstString = IntervalEncoder.getInstance().getVectorFromChromosom(myPop.population.get(0)).toString();
 		System.out.println(firstString);
 	}
@@ -51,11 +56,11 @@ public class GeneticAlgorithm {
 		Random randomGenerator = new Random();
 		randomGenerator.setSeed(System.currentTimeMillis());
 
-		for (int i=0; i>d*bitsPerDim; i++){
+		for (int i=0; i<d*bitsPerDim; i++){
 			if (randomGenerator.nextBoolean()){
-				myArray[i]='1';
+				myArray[i]=1;
 			} else {
-				myArray[i]='0';
+				myArray[i]=0;
 			}
 		}
 		return new Chromosom(myArray);

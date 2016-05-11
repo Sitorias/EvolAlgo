@@ -14,7 +14,7 @@ public class IntervalEncoder {
 	private int countBitsPerNumber;
 	private int countBitsPerVector;
 	
-	public static IntervalEncoder getInstance() {
+	public static synchronized IntervalEncoder getInstance() {
 		return instance;
 	}
 	
@@ -41,7 +41,7 @@ public class IntervalEncoder {
 		VectorND resultingVector = new VectorND(dimensions);
 		
 		for(int i = 0; i < dimensions; i++) {
-			for(int j = 0; j < countBitsPerNumber; i++) {
+			for(int j = 0; j < countBitsPerNumber; j++) {
 				containingArray[j] = chromosomToConvert.content[i * countBitsPerNumber + j];
 			}
 			double decodedValue = getFloatFromBinaryCharArray(containingArray);
@@ -55,8 +55,11 @@ public class IntervalEncoder {
 	private double getFloatFromBinaryCharArray(char[] binaryNumber) {
 		int decimalNumber = 0;
 		
-		for(int i = 1; i <= countBitsPerNumber; i++) {
-			decimalNumber += binaryNumber[countBitsPerNumber - i] * Math.pow(2, i);
+		int value = 1;
+		
+		for(int i = 0; i < countBitsPerNumber; i++) {
+			decimalNumber += binaryNumber[countBitsPerNumber - (i + 1)] * value;
+			value *= 2;
 		}
 		
 		//TODO Hardcoded, has to be replaced!!!
