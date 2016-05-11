@@ -20,6 +20,12 @@ public class Fitness {
 		fitness += a;		
 		fitness += Math.E;
 		
+		if(fitness == 0) {
+			fitness = Double.POSITIVE_INFINITY;
+		} else {
+			fitness = 1 / fitness;
+		}
+		
 		return fitness;
 	}
 }
