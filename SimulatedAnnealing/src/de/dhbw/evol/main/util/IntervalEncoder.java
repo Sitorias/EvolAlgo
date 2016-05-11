@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 public class IntervalEncoder {		
-	private static IntervalEncoder instance = new IntervalEncoder(-40.0, 40.0, 0.001, 6);
+	private static IntervalEncoder instance = new IntervalEncoder();
 	
-	private int dimensions = 1;
-	private double xMin;
-	private double xMax;
-	private double epsilon;
+	private int dimensions = 6;
+	private double xMin = -40.0;
+	private double xMax = 40.0;
+	private double epsilon = 0.001;
 	private int countBitsPerNumber;
 	private int countBitsPerVector;
 	
@@ -18,11 +18,7 @@ public class IntervalEncoder {
 		return instance;
 	}
 	
-	private IntervalEncoder(double lowerIntervalBorder, double upperIntervalBorder, double epsilon, int dimensions) {
-		this.dimensions = dimensions;
-		this.xMin = lowerIntervalBorder;
-		this.xMax = upperIntervalBorder;
-		this.epsilon = epsilon;
+	private IntervalEncoder() {
 		
 		createEncodedInterval();
 	}
