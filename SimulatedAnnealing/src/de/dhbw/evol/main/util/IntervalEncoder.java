@@ -8,6 +8,7 @@ public class IntervalEncoder {
 	private float xMin;
 	private float xMax;
 	private float epsilon;
+	private int countBits;
 	
 	IntervalEncoder(float lowerIntervalBorder, float upperIntervalBorder, float epsilon, int dimensions) {
 		this.dimensions = dimensions;
@@ -24,6 +25,14 @@ public class IntervalEncoder {
 		
 		double exponent_k = (diffInterval) / (Math.log(2));
 				
-		exponent_k *= dimensions;
+		countBits = (int) exponent_k;
+		countBits++;
+		countBits *= dimensions;
+	}
+
+//	public VectorND
+	
+	public int getCountBits() {
+		return this.countBits;
 	}
 }
