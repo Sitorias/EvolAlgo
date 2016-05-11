@@ -4,15 +4,21 @@ import java.util.BitSet;
 import java.util.List;
 import java.util.Map;
 
-public class IntervalEncoder {	
+public class IntervalEncoder {		
+	private static IntervalEncoder instance = new IntervalEncoder(-40.0, 40.0, 0.001, 6);
+	
 	private int dimensions = 1;
-	private float xMin;
-	private float xMax;
-	private float epsilon;
+	private double xMin;
+	private double xMax;
+	private double epsilon;
 	private int countBitsPerNumber;
 	private int countBitsPerVector;
 	
-	IntervalEncoder(float lowerIntervalBorder, float upperIntervalBorder, float epsilon, int dimensions) {
+	public static IntervalEncoder getInstance() {
+		return instance;
+	}
+	
+	private IntervalEncoder(double lowerIntervalBorder, double upperIntervalBorder, double epsilon, int dimensions) {
 		this.dimensions = dimensions;
 		this.xMin = lowerIntervalBorder;
 		this.xMax = upperIntervalBorder;

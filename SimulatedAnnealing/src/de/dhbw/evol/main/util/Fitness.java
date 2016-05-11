@@ -2,7 +2,7 @@ package de.dhbw.evol.main.util;
 import de.dhbw.evol.main.util.VectorND;
 
 
-public class Fitness {
+public class Fitness {	
 	double a,b,c,d;
 	
 	public Fitness(double a, double b, double c, int d){
