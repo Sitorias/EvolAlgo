@@ -1,10 +1,9 @@
 package de.dhbw.evol.main.util;
 
+import java.util.List;
 import java.util.Map;
 
-public class IntervalEncoder {
-	Map<VectorND, Chromosom> containedValues = null;
-	
+public class IntervalEncoder {	
 	private int dimensions = 1;
 	private float xMin;
 	private float xMax;
@@ -20,6 +19,11 @@ public class IntervalEncoder {
 	}
 	
 	private void createEncodedInterval() {
+		double diffInterval = xMax - xMin;
+		diffInterval /= epsilon;
 		
+		double exponent_k = (diffInterval) / (Math.log(2));
+				
+		exponent_k *= dimensions;
 	}
 }
