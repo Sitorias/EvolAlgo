@@ -37,7 +37,7 @@ public final class Selector {
 				probabilityToSurviveForChromosom.set(i, probabilityToSurviveForChromosom.get(i) - 1);
 			}
 			
-			remainingProbability.set(i, probabilityToSurviveForChromosom.get(i));
+			remainingProbability.add(probabilityToSurviveForChromosom.get(i));
 		}
 		
 		double sumProbabilities = 0;
