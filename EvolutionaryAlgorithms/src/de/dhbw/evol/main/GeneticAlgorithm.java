@@ -33,7 +33,7 @@ public class GeneticAlgorithm {
 		fitness = new Fitness(a, b, c, d);
 		Population myPop = generateStartPopulation();
 		
-		for(int i = 0; i < 100; i++) {
+		for(int i = 0; i < 10000; i++) {
 			myPop = Selector.selectFromPopulation(myPop);		
 			myPop = Recombinator.recombinate(myPop, bitsPerDim * d);
 			myPop = Mutator.mutate(myPop, 0.01, bitsPerDim * d);
